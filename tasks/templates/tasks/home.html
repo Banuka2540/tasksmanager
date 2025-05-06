@@ -1,0 +1,12 @@
+<h1>Welcome to Daily Task Manager</h1>
+
+{% if user.is_authenticated %}
+  <p>Hello, {{ user.username }}!</p>
+  <!-- Logout form -->
+  <form method="post" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+  </form>
+{% else %}
+  <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+{% endif %}

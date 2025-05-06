@@ -1,0 +1,14 @@
+<h1>Welcome, {{ user.username }}!</h1>
+<h2>Your Tasks</h2>
+
+{% if tasks %}
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} - Due: {{ task.due_date }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>You have no tasks yet.</p>
+{% endif %}
+
+<a href="{% url 'add_task' %}">Add a new task</a>
