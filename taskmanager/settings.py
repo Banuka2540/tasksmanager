@@ -129,3 +129,10 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = 'login'  # Only if you're using a custom login page
 
 LOGOUT_REDIRECT_URL = '/'
+
+STATIC_URL = '/static/'
+
+# Add this if it's not already there
+STATICFILES_DIRS = [
+    BASE_DIR / 'tasks' / 'static',  # Adjust if your static folder is elsewhere
+]

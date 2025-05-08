@@ -1,0 +1,53 @@
+/* General body and typography */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 40px;
+    color: #333;
+  }
+  
+  /* Center content */
+  h1, p, form {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Links */
+  a {
+    color: #0077cc;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 0 10px;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #0077cc;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #005fa3;
+  }
+  
+  /* Form styling */
+  form {
+    margin-top: 20px;
+  }
+  
