@@ -34,6 +34,6 @@ def add_task(request):
         Task.objects.create(
             title=title, description=description, due_date=due_date, user=request.user
         )
-        return redirect('dashboard')
-    return render(request, 'tasks/add_task.html')
+    user_tasks = Task.objects.filter(user=request.user)
+    return render(request, 'tasks/add_task.html', {'tasks': user_tasks})
 

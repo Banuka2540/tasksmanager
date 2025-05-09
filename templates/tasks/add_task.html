@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Task</title>
+    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Add a New Task</h1>
+        <form method="post">
+            {% csrf_token %}
+            <label for="title">Title:</label><br>
+            <input type="text" id="title" name="title" required><br><br>
+
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" rows="4"></textarea><br><br>
+
+            <label for="due_date">Due Date:</label><br>
+            <input type="date" id="due_date" name="due_date" required><br><br>
+
+            <button type="submit">Add Task</button>
+        </form>
+
+        <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
+    </div>
+</body>
+</html>

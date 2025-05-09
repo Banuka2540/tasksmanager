@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Dashboard</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ user.username }}!</h1>
+        <h2>Your Tasks</h2>
+
+        {% if tasks %}
+            <ul class="task-list">
+                {% for task in tasks %}
+                    <li>
+                        <strong>{{ task.title }}</strong><br>
+                        <span>Due: {{ task.due_date }}</span><br>
+                        <span>{{ task.description }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no tasks yet.</p>
+        {% endif %}
+
+        <div class="actions">
+            <a href="{% url 'add_task' %}">➕ Add New Task</a>
+            <a href="{% url 'home' %}">🏠 Back to Home</a>
+        </div>
+    </div>
+</body>
+</html>

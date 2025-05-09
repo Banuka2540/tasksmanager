@@ -55,7 +55,7 @@ ROOT_URLCONF = 'taskmanager.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / "templates"],
+        'DIRS': ["templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +133,3 @@ LOGOUT_REDIRECT_URL = '/'
 STATIC_URL = '/static/'
 
 # Add this if it's not already there
-STATICFILES_DIRS = [
-    BASE_DIR / 'tasks' / 'static',  # Adjust if your static folder is elsewhere
-]
