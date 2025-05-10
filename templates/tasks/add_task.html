@@ -1,29 +1,35 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Add Task</title>
-    <link rel="stylesheet" href="{% static 'tasks/styles.css' %}">
-</head>
-<body>
-    <div class="container">
-        <h1>Add a New Task</h1>
-        <form method="post">
-            {% csrf_token %}
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title" required><br><br>
+<h2>Add a New Task</h2>
 
-            <label for="description">Description:</label><br>
-            <textarea id="description" name="description" rows="4"></textarea><br><br>
+<form method="post">
+  {% csrf_token %}
+  <label>Title:</label><br>
+  <input type="text" name="title"><br>
 
-            <label for="due_date">Due Date:</label><br>
-            <input type="date" id="due_date" name="due_date" required><br><br>
+  <label>Description:</label><br>
+  <textarea name="description"></textarea><br>
 
-            <button type="submit">Add Task</button>
+  <label>Due Date:</label><br>
+  <input type="date" name="due_date"><br><br>
+
+  <button type="submit">Add Task</button>
+</form>
+
+<hr>
+
+<h2>Your Tasks</h2>
+{% if tasks %}
+  <ul>
+    {% for task in tasks %}
+      <li>
+        <strong>{{ task.title }}</strong> - Due: {{ task.due_date }}
+        <form action="{% url 'delete_task' task.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit">Delete</button>
         </form>
-
-        <p><a href="{% url 'dashboard' %}">← Back to Dashboard</a></p>
-    </div>
-</body>
-</html>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No tasks added yet.</p>
+{% endif %}
+    <a href="{% url 'home' %}">🏠 Back to Home</a>

@@ -3,6 +3,7 @@ from .models import Task
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from django.shortcuts import get_object_or_404
 
 def home(request):
     return render(request, 'tasks/home.html')
@@ -37,3 +38,10 @@ def add_task(request):
     user_tasks = Task.objects.filter(user=request.user)
     return render(request, 'tasks/add_task.html', {'tasks': user_tasks})
 
+
+
+@login_required
+def delete_task(request, task_id):
+    task = get_object_or_404(Task, id=task_id, user=request.user)
+    task.delete()
+    return redirect('add_task')  

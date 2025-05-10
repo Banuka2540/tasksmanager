@@ -1,18 +1,21 @@
+{% load static %}
 <h1>Welcome, {{ user.username }}!</h1>
 <h2>Your Tasks</h2>
 
 {% if tasks %}
-    <ul>
-        {% for task in tasks %}
-            <li>
-                <strong>{{ task.title }}</strong> - Due: {{ task.due_date }}
-                <!-- You can add Edit and Delete links here later -->
-            </li>
-        {% endfor %}
-    </ul>
+  <ul>
+    {% for task in tasks %}
+      <li>
+        <strong>{{ task.title }}</strong> - Due: {{ task.due_date }}
+        <form action="{% url 'delete_task' task.id %}" method="post" style="display:inline;">
+          {% csrf_token %}
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+    {% endfor %}
+  </ul>
 {% else %}
-    <p>You have no tasks yet.<br>
-    <a href="{% url 'add_task' %}">Add a new task</a></p>
+  <p>No tasks added yet.</p>
 {% endif %}
-    <!-- Optionally, add links to manage the user's tasks -->
-    <a href="{% url 'add_task' %}">Add a new task</a>
+<a href="{% url 'add_task' %}">➕ Add New Task</a>
+<a href="{% url 'logged_out' %}">➕ To Log Out </a>
