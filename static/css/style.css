@@ -1,0 +1,96 @@
+/* Base reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #7a7a7a;
+  color: #000000;
+  padding: 20px;
+  line-height: 1.6;
+}
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Headings */
+h1, h2 {
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+/* Links */
+a {
+  text-decoration: none;
+  color: #4200bd;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Forms */
+form {
+  margin-top: 10px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+textarea {
+  width: 20%;
+  padding: 10px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+/* Buttons */
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Task list */
+.task {
+  padding: 12px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.task-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Flash messages */
+.message {
+  padding: 10px;
+  background-color: #e7f3fe;
+  border: 1px solid #b3d7ff;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  color: #31708f;
+}

@@ -1,3 +1,8 @@
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
 <h2>Add a New Task</h2>
 
 <form method="post">
@@ -13,7 +18,7 @@
 
   <button type="submit">Add Task</button>
 </form>
-
+<br>
 <hr>
 
 <h2>Your Tasks</h2>
@@ -32,4 +37,4 @@
 {% else %}
   <p>No tasks added yet.</p>
 {% endif %}
-    <a href="{% url 'home' %}">🏠 Back to Home</a>
+    <a href="{% url 'home' %}">Back to Home</a>

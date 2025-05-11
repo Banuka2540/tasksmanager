@@ -9,5 +9,5 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
     path('add/', views.add_task, name='add_task'),
     path('delete/<int:task_id>/', views.delete_task, name='delete_task'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),path('logout/', views.logged_out, name='logout'),  
+    path('logout/', auth_views.LogoutView.as_view(next_page='home'), name='logout'),
 ]

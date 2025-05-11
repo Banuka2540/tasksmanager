@@ -1,4 +1,8 @@
-<h2>Login</h2>
+{% load static %}
+<head>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<h2>--Log into Your Account--</h2>
 <form method="post" action="{% url 'login' %}">
   {% csrf_token %}
   {{ form.as_p }}

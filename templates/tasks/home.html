@@ -1,24 +1,27 @@
+<!DOCTYPE html>
 {% load static %}
-<h1>Welcome, {{ user.username }}!</h1>
-<h2>Your Tasks</h2>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
 
-{% if tasks %}
-  <ul>
-    {% for task in tasks %}
-      <li>
-        <strong>{{ task.title }}</strong> - Due: {{ task.due_date }}
-        <form action="{% url 'delete_task' task.id %}" method="post" style="display:inline;">
-          {% csrf_token %}
-          <button type="submit">Delete</button>
-        </form>
-      </li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No tasks added yet.</p>
-{% endif %}
-<a href="{% url 'add_task' %}"> Add New Task</a><br>
-<form method="post" action="{% url 'logout' %}">
-  {% csrf_token %}
-  <button type="submit">Logout</button>
-</form>
+
+<body>
+    <div class="container">
+        <h1>Welcome to Daily Task Manager</h1>
+
+        {% if user.is_authenticated %}
+            <p>Hello, {{ user.username }}!</p>
+            
+            <p><a href="{% url 'dashboard' %}">Go to Dashboard</a></p>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <p><a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>

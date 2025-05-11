@@ -18,7 +18,7 @@ def register(request):
             return redirect('dashboard')
     else:
         form = UserCreationForm()
-    return render(request, 'tasks/register.html', {'form': form})
+    return render(request, 'registration/register.html', {'form': form})
 
 
 def logged_out(request):
