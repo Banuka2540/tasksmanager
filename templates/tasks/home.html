@@ -17,5 +17,8 @@
 {% else %}
   <p>No tasks added yet.</p>
 {% endif %}
-<a href="{% url 'add_task' %}">➕ Add New Task</a>
-<a href="{% url 'logged_out' %}">➕ To Log Out </a>
+<a href="{% url 'add_task' %}"> Add New Task</a><br>
+<form method="post" action="{% url 'logout' %}">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
